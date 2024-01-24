@@ -2,7 +2,7 @@ const { ContextMenuCommandInteraction, ApplicationCommandType } = require("disco
 
 const data = {
   type: ApplicationCommandType.User,
-  name: "Avater",
+  name: "Avatar",
 }
 
 const perms = {
