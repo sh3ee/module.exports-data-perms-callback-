@@ -1,0 +1,25 @@
+{
+  "name": "@application/bot",
+  "version": "1.0.0",
+  "description": "discord.js handler",
+  "main": "structures/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "glob": "^10.3.10"
+  },
+  "keywords": [
+    "discord.js"
+  ],
+  "author": "shree_o",
+  "license": "ISC"
+}
