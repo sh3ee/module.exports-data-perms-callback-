@@ -1,16 +1,16 @@
 const { Events, ChatInputCommandInteraction } = require("discord.js");
+const client = require("../../index");
 
 module.exports = {
     name: Events.InteractionCreate,
 
     /** 
      * @param {ChatInputCommandInteraction} interaction;
-     * @param {Client} client;
      * @returns;
      * 
      */
 
-    callback: async (client, interaction) => {
+    callback: async (interaction) => {
 
         if (!interaction.isChatInputCommand() && !interaction.isContextMenuCommand()) return;
         const { user, guild, commandName, member } = interaction;

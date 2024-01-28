@@ -56,11 +56,11 @@ async function loadEvents() {
 
       if (event.once) {
         client.once(event.name, async (...args) => {
-          event.callback(client, ...args)
+          event.callback(...args)
         })
       } else {
         client.on(event.name, async (...args) => {
-          event.callback(client, ...args)
+          event.callback(...args)
         })
       }
 

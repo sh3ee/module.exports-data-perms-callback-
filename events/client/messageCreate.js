@@ -1,17 +1,17 @@
 const { Events, Message, ChannelType } = require("discord.js");
 const { ClientPrefix } = require("../../configuration/config.json");
+const client = require("../../index");
 
 module.exports = {
     name: Events.MessageCreate,
 
     /** 
      * @param {Message} message;
-     * @param {Client} client; 
      * @returns;
      * 
      */
 
-    callback: async (client, message) => {
+    callback: async (message) => {
 
         if (message.channel.type !== ChannelType.GuildText) return;
         const { author, guild, member } = message;
