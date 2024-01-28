@@ -16,7 +16,7 @@ const perms = {
  * @returns;
  */
 
-async function callback(interaction, client) {
+async function callback(client, interaction) {
   return interaction.reply({ ephemeral: true, content: `**${client.ws.ping}ms**` });
 }
 

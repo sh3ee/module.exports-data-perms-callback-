@@ -16,7 +16,7 @@ const perms = {
  * 
  */
 
-async function callback(interaction, client) {
+async function callback(client, interaction) {
   const target = await interaction.guild.members.fetch(interaction.targetId);
   return interaction.reply({ content: target.displayAvatarURL({ extension: "png" }), ephemeral: true });
 }

@@ -1,6 +1,8 @@
 {
-  "ClientToken"  : "",    
-  "DatabaseToken" : "",
-  "ClientPrefix"  : ".",
-  "DeveloperIds"   : [""]
+  "ClientToken": "",
+  "ClientId": "",
+  "ClientPrefix": ".",
+  "DeveloperIds": [
+    ""
+  ]
 }

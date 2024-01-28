@@ -11,7 +11,7 @@ module.exports = {
      * 
      */
 
-    callback: async (message, client) => {
+    callback: async (client, message) => {
 
         if (message.channel.type !== ChannelType.GuildText) return;
         const { author, guild, member } = message;
@@ -21,7 +21,7 @@ module.exports = {
         if (author.bot || !message.guild || !message.content.toLowerCase().startsWith(prefix)) return;
         const [cmd, ...args] = message.content.slice(prefix.length).trim().split(/ +/g);
 
-        const command = client.MessageCommands.get(cmd.toLowerCase()) || client.MessageCommands.find(c => c.data.aliases?.includes(cmd.toLowerCase()));
+        const command = client.commands.get(cmd.toLowerCase()) || client.commands.find(c => c.data.aliases?.includes(cmd.toLowerCase()));
         if (!command) return;
 
         if (command.perms.UserPermissions && command.perms.UserPermissions.length !== 0)
@@ -32,6 +32,6 @@ module.exports = {
 
         if (command.perms.devOnly && !client.Developer.includes(author.id)) return message.reply({ content: `This command is devOnly!` });
 
-        command.callback(message, client, args);
+        command.callback(client, message, args);
     }
 }
