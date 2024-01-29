@@ -1,8 +1,8 @@
-const { Events, ChatInputCommandInteraction } = require("discord.js");
+const { ChatInputCommandInteraction } = require("discord.js");
 const client = require("../../index");
 
 module.exports = {
-    name: Events.InteractionCreate,
+    name: "interactionCreate",
 
     /** 
      * @param {ChatInputCommandInteraction} interaction;

@@ -1,9 +1,9 @@
-const { Events, ActivityType } = require("discord.js");
+const { ActivityType } = require("discord.js");
 const { logger } = require("../../configuration/common.js");
 const client = require("../../index");
 
 module.exports = {
-  name: Events.ClientReady,
+  name: "ready",
   once: true,
 
   /**
