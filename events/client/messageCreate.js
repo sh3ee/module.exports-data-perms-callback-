@@ -1,5 +1,5 @@
 const { Events, Message, ChannelType } = require("discord.js");
-const { ClientPrefix } = require("../../configuration/config.json");
+const { client-prefix } = require("../../configuration/config.json");
 const client = require("../../index");
 
 module.exports = {
@@ -16,7 +16,7 @@ module.exports = {
         if (message.channel.type !== ChannelType.GuildText) return;
         const { author, guild, member } = message;
 
-        const prefix = ClientPrefix;
+        const prefix = client-prefix;
 
         if (author.bot || !message.guild || !message.content.toLowerCase().startsWith(prefix)) return;
         const [cmd, ...args] = message.content.slice(prefix.length).trim().split(/ +/g);

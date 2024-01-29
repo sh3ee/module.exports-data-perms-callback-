@@ -1,5 +1,5 @@
 const { Client, Partials, Collection, REST, Routes, ApplicationCommandType } = require("discord.js");
-const { ClientToken, ClientId } = require("./configuration/config.json");
+const { ClientToken, ClientID } = require("./configuration/config.json");
 const { logger } = require("./configuration/common.js");
 const { readdirSync } = require("fs");
 
@@ -90,7 +90,9 @@ async function loadCommands() {
 async function loadSlashCommands() {
   console.log(`\n✎ sʟᴀsʜ-ᴄᴏᴍᴍᴀɴᴅ-ʟᴏᴀᴅᴇʀ-ʀᴜɴɪɴɢ...`);
 
-  if (!ClientId) return logger("WARN", "Client", `Client ID is missing in config file.`);
+  if (!ClientID) {
+    return logger("WARN", "Client", `Client ID is missing in config file.`);
+  }
 
   const slashArray = [];
   readdirSync("./slashcommands/").forEach(async (directory) => {
@@ -106,14 +108,14 @@ async function loadSlashCommands() {
       slashArray.push(slash.data);
 
       logger("INFO", slash.data.name, "Successfully Loaded.");
-
-      const rest = new REST({ version: '10' }).setToken(ClientToken);
-
-      try {
-        await rest.put(Routes.applicationCommands(ClientId), { body: slashArray })
-      } catch (error) {
-        console.error(error);
-      }
     })
   })
+
+  const rest = new REST({ version: '10' }).setToken(ClientToken);
+
+  try {
+    await rest.put(Routes.applicationCommands(ClientID), { body: slashArray })
+  } catch (error) {
+    console.error(error);
+  }
 }
