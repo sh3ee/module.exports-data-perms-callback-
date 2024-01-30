@@ -18,7 +18,7 @@ const perms = {
  */
 
 async function callback(client, message, args) {
-  return message.reply({ content: `Ping: **${client.ws.ping} ms**` });
+  return message.reply({ content: `Ping: ${client.ws.ping}ms` });
 }
 
 module.exports = { data, perms, callback }
